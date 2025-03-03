@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <h1>{{ topic.name }}</h1>
+    <p>{{ topic.text }}</p>
+    <!--Breadcrumbs-->
+    <nav>
+        <a href="{% url 'blog:category_page' topic.category.id %}">{{ topic.category.name }}</a> &gt;
+        <a href="{% url 'blog:topic_page' topic.id %}">{{ topic.name }}</a>
+    </nav>
+
+    <div class="topic-section mb-5">
+        <ul class="list-group">
+            {% for post in posts %}
+
+            <h4><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h4>
+            <li class="list-group-item">
+                <p>{{ post.date_added|date:'M d, Y H:i'}}</p>
+                <p>{{ post.text|truncatewords:150 }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid" style="max-height: 200px; width: auto;">
+                {% endif %}
+            </li>
+            {% empty %}
+                <li class="list-group-item">No posts available for this topic yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="{% url 'blog:new_post' topic.id %}">Add a new post</a>
+
+ 
+
+{% endblock content %}

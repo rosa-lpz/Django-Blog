@@ -1,0 +1,6 @@
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fff;
+    margin-top: auto;  /* Push the footer to the bottom */
+  }

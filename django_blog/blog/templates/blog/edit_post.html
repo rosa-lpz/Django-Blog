@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<!--Breadcrumbs-->
+<nav>
+    <a href="{% url 'blog:category_page' topic.category.id %}">{{ topic.category.name }}</a> &gt;
+    <a href="{% url 'blog:topic_page' topic.id %}">{{ topic.name }}</a>
+</nav>
+
+<p>Edit Post:</p>
+<form action="{% url 'blog:edit_post' post.id %}" method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>Save Changes</button>
+</form>
+ 
+
+{% endblock content %}

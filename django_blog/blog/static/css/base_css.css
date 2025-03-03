@@ -1,0 +1,16 @@
+/* Make the body take at least the full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Make the entire page a flex container */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Allow the content section to grow and push the footer down */
+.main-content {
+    flex: 1;
+}

@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Latest Post -->
+
+  <section>
+      <h2>Latest Post</h2>
+      {% for post in latest_posts %}
+          <div>
+              <h3><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h3>
+              <img src="{{post.image.url }}" alt="{{post.title}}">
+              <p>{{ post.text|truncatewords:30 }}</p>
+          </div>
+      {% endfor %}
+  </section>
+
+  <!-- Recent Posts -->
+  <section>
+      <h2>Recent Posts</h2>
+      {% for post in recent_posts %}
+        <li class="list-group-item">
+              <h3><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h3>
+              <p>{{ post.text|truncatewords:30 }}</p>
+              <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid" style="max-height: 200px; width: auto;">
+        </li>
+      {% endfor %}
+  </section>
+
+  <!-- Categories with Topics -->
+  <section>
+    <h2>Categories</h2>
+    {% for category in categories %}
+    <div class="topic-section mb-5">
+        <h2><a href="{% url 'blog:category_page' category.id %}">{{ category.name }}</a></h2>
+        
+
+        <ul class="list-group">
+            {% for topic in category.topic_set.all %}
+                <h4><a href="{% url 'blog:topic_page' topic.id %}">{{ topic.name }}</a></h4>
+            {% empty %}
+                <li class="list-group-item">No topics available for this category yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+  {% empty %}
+    <p>No categories found in this blog.</p>
+  {% endfor %}
+
+  <a href="{% url 'blog:new_category' %}">Add a new Category</a>
+</section>
+
+ 
+ 
+{% endblock content %}
