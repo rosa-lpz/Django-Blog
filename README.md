@@ -1,2 +1,5 @@
-# Django-Blog
-Django Blog Website
+# Django Blog Website
+
+![image](blog.gif)
+
+
