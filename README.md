@@ -25,20 +25,19 @@ A simple and feature-rich blog application built with Django. It provides an eas
 
 
 ## Setup:
-### Clone this repository.
-* Install the required dependencies using:
+### Clone this repository and install the required dependencies
 ```bash
 pip install -r requirements.txt
 ```
    
 
-### Run database migrations:
+### Run database migrations
 ```bash
 python manage.py migrate
 ```
 
 
-### Start the development server:
+### Start the development server
 ```bash
 python manage.py runserver
 ```
