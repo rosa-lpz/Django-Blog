@@ -1,9 +1,9 @@
 # Django Blog Website
 
+A simple blog application built with Django. It provides an easy-to-use platform for users to create, edit, and delete blog posts, with a focus on clean, maintainable code and responsive design.
+
 ![image](blog.gif)
 
-
-A simple and feature-rich blog application built with Django. It provides an easy-to-use platform for users to create, edit, and delete blog posts, with a focus on clean, maintainable code and responsive design.
 
 ## Features
 
